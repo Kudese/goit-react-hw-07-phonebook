@@ -1,6 +1,6 @@
+import { addContact } from 'components/redux/contact.thunk';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContactAction } from '../redux/store';
 import s from '../PhoneBook/PhoneBook.module.css';
 
 export default function PhoneBook() {
@@ -18,7 +18,7 @@ export default function PhoneBook() {
   };
   const handleSubmitForm = e => {
     e.preventDefault();
-    dispatch({ type: addContactAction.toString(), payload: { name, number } });
+    dispatch(addContact({ name, phone: number }));
     setName('');
     setNumber('');
   };
